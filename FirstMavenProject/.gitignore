@@ -1,13 +1,8 @@
 /target/
-#ignore all js files typ
 *.js 
-
 *.classpath
-
 *.project
-
 /.settings/
-
 /package/
-
 *.xml
+*.json
