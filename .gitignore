@@ -1,4 +1,5 @@
 #ignore txt
+/target/
 *.txt
 *.gitattributes
 *.git
@@ -6,5 +7,5 @@
 *.project
 /pom.xml/
 *.settings
-/target/
+
 #ignore files
