@@ -1,0 +1,10 @@
+#ignore txt
+*.txt
+*.gitattributes
+*.git
+*.classpath
+*.project
+/pom.xml/
+*.settings
+/target/
+#ignore files
