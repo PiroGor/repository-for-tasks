@@ -1,4 +1,4 @@
-package task1_1;
+package task1;
 
 public abstract class StringRevers {
 	public static void reverse(String word) {
