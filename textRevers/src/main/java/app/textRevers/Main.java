@@ -15,7 +15,7 @@ public class Main {
 		String forSplit = " ";
 		String[] words = str.split(forSplit);
 		for (int i = 0; i < words.length; i++) {
-			StringRevers.reverse(words[i]);
+			System.out.print(StringRevers.reverse(words[i]));
 
 		}
 
