@@ -1,7 +1,7 @@
 package app.textRevers;
 
 public class StringRevers {
-	public static void reverse(String word) {
+	public static char[] reverse(String word) {
 		char[] charWord = word.toCharArray();
 		int startPoint = 0;
 		int endPoint = charWord.length - 1;
@@ -21,7 +21,6 @@ public class StringRevers {
 				endPoint--;
 			}
 		}
-		System.out.print(charWord);
-		System.out.print(" ");
+		return charWord;
 	}
 }
