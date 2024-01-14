@@ -1,18 +1,24 @@
 package app.textRevers;
 
 import static org.junit.jupiter.api.Assertions.*;
-
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class StringReversTest {
+/*
+in this test class  should be failed reverseStringWithNumbers,
+reverseStringWithCharacters and
+reverseStringWithMixedCharactersAndNumbers tests
+*/
+
+public class StringReversTest {
 	@DisplayName("reverseEmptyString")
 	@Test
 	public void reverseEmptyString() {
 		String word = "";
 		char[] wordChar=word.toCharArray();
 		char[] reversedWord = StringRevers.reverse(word);
+		System.out.println(wordChar);
+		System.out.println(reversedWord);
 		assertArrayEquals(wordChar, reversedWord);
 	}
 	
@@ -33,7 +39,7 @@ class StringReversTest {
 		char[] reversedWord = StringRevers.reverse(word);
 		assertArrayEquals(wordChar, reversedWord);
 	}
-	
+
 	@DisplayName("reverseStringWithCharacters")
 	@Test
 	public void reverseStringWithCharacters() {
@@ -42,7 +48,7 @@ class StringReversTest {
 		char[] reversedWord = StringRevers.reverse(word);
 		assertArrayEquals(wordChar, reversedWord);
 	}
-	
+
 	@DisplayName("reverseStringWithMixedCharactersAndNumbers")
 	@Test
 	public void reverseStringWithMixedCharactersAndNumbers() {
