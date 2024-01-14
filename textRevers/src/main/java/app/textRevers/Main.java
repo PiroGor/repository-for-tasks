@@ -1,23 +1,26 @@
 package app.textRevers;
 
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Collections;
+
 
 public class Main {
 
 	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
-		String str = scan.nextLine();
-		makeReverse(str);
+
+		System.out.println(reverseYourString("qwe1rty5u rty888jnm!"));
 
 	}
 
-	public static void makeReverse(String str) {
-		String forSplit = " ";
-		String[] words = str.split(forSplit);
-		for (int i = 0; i < words.length; i++) {
-			System.out.print(StringRevers.reverse(words[i]));
-
-		}
-
+	/*1.rename method from makeReverse to reverseYourString
+	2.make method which return String not just void
+	3.change logic a little bit
+	*  */
+	public static String reverseYourString(String str) {
+		final ArrayList<String> words=new ArrayList<>();
+		Collections.addAll(words, str.split(" "));
+		final ArrayList<String> splitWords=new ArrayList<>();
+		words.forEach(s-> splitWords.add(StringRevers.reverse(s)));
+        return String.join(" ",splitWords);
 	}
 }
