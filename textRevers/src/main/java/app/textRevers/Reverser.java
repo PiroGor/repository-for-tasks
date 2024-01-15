@@ -2,17 +2,17 @@ package app.textRevers;
 
 import java.util.*;
 
-public class Revers {				//rename class
+public class Reverser {				//rename class
 	/*1.rename method from makeReverse to splitStringToRevers
 	  2.make method which return String not just void
 	  3.change logic a little bit
 	  4.replace splitStringToRevers method from Main to Revers
 	*  */
-	public static String splitStringToRevers(String str) {
+	public static String reverseSentence(String str) {
 		final ArrayList<String> words=new ArrayList<String>();
 		Collections.addAll(words, str.split(" "));
 		final ArrayList<String> splitWords=new ArrayList<String>();
-		words.forEach(s-> splitWords.add(Revers.reverseWord(s)));
+		words.forEach(s-> splitWords.add(reverseWord(s)));
 		return String.join(" ",splitWords);
 	}
 	private static String reverseWord(String word) {		//change the return type and modifier
