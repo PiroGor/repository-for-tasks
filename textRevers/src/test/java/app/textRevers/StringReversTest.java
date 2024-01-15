@@ -14,48 +14,31 @@ public class StringReversTest {
 	@DisplayName("reverseEmptyString")
 	@Test
 	public void reverseEmptyString() {
-		String word = "";
-		char[] wordChar=word.toCharArray();
-		char[] reversedWord = StringRevers.reverse(word);
-		System.out.println(wordChar);
-		System.out.println(reversedWord);
-		assertArrayEquals(wordChar, reversedWord);
+		assertEquals("", StringRevers.reverse(""));
 	}
 	
 	@DisplayName("reverseStringWithOnlyLetters")
 	@Test
 	public void reverseStringWithOnlyLetters() {
-		String word = "qwerty";
-		char[] wordChar="ytrewq".toCharArray();
-		char[] reversedWord = StringRevers.reverse(word);
-		assertArrayEquals(wordChar, reversedWord);
+		assertEquals("ytrewq", StringRevers.reverse("qwerty"));
 	}
 
 	@DisplayName("reverseStringWithNumbers")
 	@Test
 	public void reverseStringWithNumbers() {
-		String word = "12345";
-		char[] wordChar="54321".toCharArray();
-		char[] reversedWord = StringRevers.reverse(word);
-		assertArrayEquals(wordChar, reversedWord);
+		assertEquals("54321", StringRevers.reverse("12345"));
 	}
 
 	@DisplayName("reverseStringWithCharacters")
 	@Test
 	public void reverseStringWithCharacters() {
-		String word = "!@#$%^&*()";
-		char[] wordChar="(*&^%$#@!".toCharArray();
-		char[] reversedWord = StringRevers.reverse(word);
-		assertArrayEquals(wordChar, reversedWord);
+		assertEquals("(*&^%$#@!", StringRevers.reverse("!@#$%^&*()"));
 	}
 
 	@DisplayName("reverseStringWithMixedCharactersAndNumbers")
 	@Test
 	public void reverseStringWithMixedCharactersAndNumbers() {
-		String word = "ab12cd34ef56gh78ij";
-		char[] wordChar="jihgfedcba87654321".toCharArray();
-		char[] reversedWord = StringRevers.reverse(word);
-		assertArrayEquals(wordChar, reversedWord);
+		assertEquals("jihgfedcba87654321", StringRevers.reverse("ab12cd34ef56gh78ij"));
 	}
 
 }
