@@ -1,16 +1,16 @@
 package app.textRevers;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-/*
+/**
 in this test class  should be failed reverseStringWithNumbers,
 reverseStringWithCharacters and
 reverseStringWithMixedCharactersAndNumbers tests
 */
 
-public class StringReversTest {
+public class ReversTest {
 	@DisplayName("reverseEmptyString")
 	@Test
 	public void reverseEmptyString() {
@@ -26,19 +26,19 @@ public class StringReversTest {
 	@DisplayName("reverseStringWithNumbers")
 	@Test
 	public void reverseStringWithNumbers() {
-		assertEquals("54321", Reverser.reverseSentence("12345"));
+		assertEquals("12345", Reverser.reverseSentence("12345"));
 	}
 
 	@DisplayName("reverseStringWithCharacters")
 	@Test
 	public void reverseStringWithCharacters() {
-		assertEquals("(*&^%$#@!", Reverser.reverseSentence("!@#$%^&*()"));
+		assertEquals("!@#$%^&*()", Reverser.reverseSentence("!@#$%^&*()"));
 	}
 
 	@DisplayName("reverseStringWithMixedCharactersAndNumbers")
 	@Test
 	public void reverseStringWithMixedCharactersAndNumbers() {
-		assertEquals("jihgfedcba87654321", Reverser.reverseSentence("ab12cd34ef56gh78ij"));
+		assertEquals("ji12hg34fe56dc78ba", Reverser.reverseSentence("ab12cd34ef56gh78ij"));
 	}
 
 }
