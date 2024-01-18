@@ -4,13 +4,13 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-/*
+/**
 in this test class  should be failed reverseStringWithNumbers,
 reverseStringWithCharacters and
 reverseStringWithMixedCharactersAndNumbers tests
 */
 
-public class StringReversTest {
+public class ReversTest {
 	@DisplayName("reverseEmptyString")
 	@Test
 	public void reverseEmptyString() {
