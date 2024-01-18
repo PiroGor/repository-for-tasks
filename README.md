@@ -21,3 +21,17 @@ Use only the Latin alphabet to test.
 
 ### Solution
 This program reads the input and reverse String. This algorithm defines Line boundaries on the left and the right side, checks whether both characters are letters, if true swaps them.
+
+## Task 1.2 Unit tests
+### Assignment:
+
+Pick-up previous task and write JUnit tests for it.
+- Use Junit5 dependency
+- Tests should run with project build
+- Maven surefire plugin
+- Use appropriate test methods naming convention (ask Mentor for preferred one)
+- Add Sonar lint plugin support to your IDE.
+### Compiling:
+```
+mvc test
+```
