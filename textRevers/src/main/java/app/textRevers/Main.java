@@ -11,15 +11,15 @@ public class Main {
 
 	private static void choicerOfProgram() {
 
-			System.out.println("* * * * * * * * * * * * * * * * * *\n" +
-					"* SELECT WHICH PROGRAM TO EXECUTE *\n" +
-					"*---------------------------------*\n" +
-					"* 1 - Anagrams                    *\n" +
-					"* 2 - IntegerDivision			  *\n" +
-					"*								  *\n" +
-					"* # - Any symbol to exit          *\n" +
-					"* * * * * * * * * * * * * * * * * *\n" +
-					"> ");
+			System.out.println( "* * * * * * * * * * * * * * * * * *\n" +
+								"* SELECT WHICH PROGRAM TO EXECUTE *\n" +
+								"*---------------------------------*\n" +
+								"* 1 - Anagrams                    *\n" +
+								"* 2 - IntegerDivision			  *\n" +
+								"*								  *\n" +
+								"* # - Any symbol to exit          *\n" +
+								"* * * * * * * * * * * * * * * * * *\n" +
+								"> ");
 
 			String choice=scanner.nextLine();
 
@@ -36,11 +36,11 @@ public class Main {
 
 	private static void reverser(){
 		System.out.println( "* * * * * * * * * * * * * * * * * *\n" +
-				"* Please, enter your sentence:     " );
+							"* Please, enter your sentence:     " );
 
 		System.out.println( "* Reversed sentence: \n"+
-				"* "+Reverser.reverseSentence(scanner.nextLine())+
-				"\n* * * * * * * * * * * * * * * * * *\n");
+							"* "+Reverser.reverseSentence(scanner.nextLine())+
+							"\n* * * * * * * * * * * * * * * * * *\n");
 	}
 
 }
