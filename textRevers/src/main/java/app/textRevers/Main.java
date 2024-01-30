@@ -17,15 +17,17 @@ public class Main {
 
 	private static void choicerOfProgram() {
 			System.out.println();
-			System.out.println( "* * * * * * * * * * * * * * * * * *\n" +
-								"* SELECT WHICH PROGRAM TO EXECUTE *\n" +
-								"*---------------------------------*\n" +
-								"* 1 - Anagrams                    *\n" +
-								"* 2 - IntegerDivision			  *\n" +
-								"*								  *\n" +
-								"* # - Any symbol to exit          *\n" +
-								"* * * * * * * * * * * * * * * * * *\n" +
-								"> ");
+			System.out.print( """
+        * * * * * * * * * * * * * * * * * *
+								* SELECT WHICH PROGRAM TO EXECUTE *
+								*---------------------------------*
+								* 1 - Anagrams                    *
+								* 2 - IntegerDivision			  *
+								*								  *
+								* # - Any symbol to exit          *
+								* * * * * * * * * * * * * * * * * *
+								>
+								""");
 
 			String choice=scanner.nextLine();
 
@@ -68,6 +70,7 @@ public class Main {
 		int dividend= scanner.nextInt();
 		System.out.println("* Enter a divisor: ");
 		int divisor= scanner.nextInt();
+		System.out.println("* * * * * * * * * * * * * * * * * *");
 		System.out.println(IntDivision.makeDivision(dividend,divisor));
 
 		askToContinueProgram();
@@ -81,9 +84,9 @@ public class Main {
 	 */
 	private static void askToContinueProgram(){
 		System.out.println("Do you want to continue this session? y/n   ");
-		if(scanner.nextLine().equals("y")){
+		if(scanner.next().equals("y")){
 			choicerOfProgram();
-		}else if(scanner.nextLine().equals("n")){
+		}else if(scanner.next().equals("n")){
 			System.out.println("\nShutting down...\nBye bye!");
 			scanner.close();
 		}else{
