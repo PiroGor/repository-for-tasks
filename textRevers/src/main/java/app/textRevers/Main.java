@@ -26,7 +26,7 @@ public class Main {
 			if(choice.equals("1")){
 				reverser();
 			}else if(choice.equals("2")){
-
+				division();
 			}else{
 				System.out.println("Shutting down...");
 				scanner.close();
@@ -41,6 +41,15 @@ public class Main {
 		System.out.println( "* Reversed sentence: \n"+
 							"* "+Reverser.reverseSentence(scanner.nextLine())+
 							"\n* * * * * * * * * * * * * * * * * *\n");
+	}
+
+	private static void division(){
+		System.out.println( "* * * * * * * * * * * * * * * * * *\n"+
+							"*Please, enter a dividend: ");
+		int dividend= scanner.nextInt();
+		System.out.println("* Enter a divisor: ");
+		int divisor= scanner.nextInt();
+		System.out.println(IntDivision.makeDivision(dividend,divisor));
 	}
 
 }
