@@ -35,3 +35,36 @@ Pick-up previous task and write JUnit tests for it.
 ```
 mvc test
 ```
+
+## Task 1.3 Integer division
+### Assignment:
+
+- Write an integer-division application that divides numbers and prints results into the console. 
+- Use maven, and don't forget to cover your code with unit tests.
+- Add simple interface.
+
+### Example:
+
+    * * * * * * * * * * * * * * * * * *
+    * SELECT WHICH PROGRAM TO EXECUTE *
+    *---------------------------------*
+	* 1 - Anagrams                    *
+	* 2 - IntegerDivision			  *
+	*								  *
+	* # - Any symbol to exit          *
+	* * * * * * * * * * * * * * * * * *
+	>2
+    * * * * * * * * * * * * * * * * * *
+    *Please, enter a dividend: 
+    124
+    * Enter a divisor: 
+    3
+    _124|3
+     12 |--
+     -- |41
+      _4
+       3
+       -
+       1
+
+
