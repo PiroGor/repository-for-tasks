@@ -1,6 +1,7 @@
 package app.textRevers;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author Anastasiia Nudha
@@ -9,22 +10,19 @@ import java.util.*;
  */
 
 public class Reverser {
-
 	/**
 	 * Method name: reverseSentence
 	 *
-	 * @param str The sentence what be reversed.
+	 * @param sentence The sentence what be reversed.
 	 * @return (String) Reversed sentence.
 	 * 											Inside the function: 1. Splitting String on words;
 	 * 											2. Calling the method reverseWord() for each word
 	 * 											in sentence; 3. Return joining words in String;
 	 */
-	public static String reverseSentence(String str) {
-		final ArrayList<String> words=new ArrayList<String>();
-		Collections.addAll(words, str.split(" "));
-		final ArrayList<String> splitWords=new ArrayList<String>();
-		words.forEach(s-> splitWords.add(reverseWord(s)));
-		return String.join(" ",splitWords);
+	public static String reverseSentence(String sentence){
+		return Arrays.stream(sentence.split(" "))
+				.map(Reverser::reverseWord)
+				.collect(Collectors.joining(" "));
 	}
 
 	/**
