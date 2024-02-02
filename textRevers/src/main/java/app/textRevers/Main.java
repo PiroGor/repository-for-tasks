@@ -9,7 +9,6 @@ public class Main {
 
 	public static void main(String[] args) {
 		selectToExecute();
-		scanner.close();
 	}
 
 	/**
@@ -20,8 +19,8 @@ public class Main {
 	 */
 
 	private static void selectToExecute() {
-			System.out.println();
-			System.out.print( """
+		System.out.println();
+		System.out.print( """
         * * * * * * * * * * * * * * * * * *
 								* SELECT WHICH PROGRAM TO EXECUTE *
 								*---------------------------------*
@@ -33,16 +32,17 @@ public class Main {
 								>
 								""");
 
-			String choice=scanner.nextLine();
+		String choice=scanner.nextLine();
 
-			if(choice.equals("1")){
-				reverseSentenceExecutor();
-			}else if(choice.equals("2")){
-				intDivisionExecutor();
-			}else{
-				System.out.println("Shutting down...");
+		if(choice.equals("1")){
+			reverseSentenceExecutor();
+		}else if(choice.equals("2")){
+			intDivisionExecutor();
+		}else{
+			System.out.println("Shutting down...");
+			scanner.close();
+		}
 
-			}
 
 
 	}
@@ -77,7 +77,7 @@ public class Main {
 		System.out.println("* Enter a divisor: ");
 		int divisor= scanner.nextInt();
 		System.out.println("* * * * * * * * * * * * * * * * * *");
-		System.out.println(IntDivision.makeDivision(dividend,divisor));
+		System.out.println(IntDivision.divide(dividend,divisor));
 
 		askToContinue();
 	}
@@ -94,6 +94,7 @@ public class Main {
 			selectToExecute();
 		}else if(scanner.next().equals("n")){
 			System.out.println("\nShutting down...\nBye bye!");
+			scanner.close();
 		}else{
 			System.out.println("Please, chose y or n");
 			askToContinue();
