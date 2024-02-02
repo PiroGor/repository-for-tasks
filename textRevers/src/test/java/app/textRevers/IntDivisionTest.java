@@ -7,16 +7,24 @@ import static org.junit.jupiter.api.Assertions.*;
 class IntDivisionTest {
 
     @Test
-    void divisionByZero(){assertEquals("Divisor cannot be 0, division by zero",IntDivision.makeDivision(145,0));}
+    void divisionByZero(){
+        assertEquals("Divisor cannot be 0, division by zero", IntDivision.divide(145,0));
+    }
 
     @Test
-    void zeroDividend(){assertEquals("0/5=0",IntDivision.makeDivision(0,5));}
+    void zeroDividend(){
+        assertEquals("0/5=0", IntDivision.divide(0,5));
+    }
 
     @Test
-    void zeroDividendAndDivisor(){assertEquals("Divisor cannot be 0, division by zero",IntDivision.makeDivision(0,0));}
+    void zeroDividendAndDivisor(){
+        assertEquals("Divisor cannot be 0, division by zero", IntDivision.divide(0,0));
+    }
 
     @Test
-    void dividendGreaterThanDivisor(){assertEquals("5/145=0",IntDivision.makeDivision(5,145));}
+    void dividendGreaterThanDivisor(){
+        assertEquals("5/145=0", IntDivision.divide(5,145));
+    }
 
     @Test
     void dividendLessThanZero(){
@@ -29,7 +37,6 @@ class IntDivisionTest {
                    ----
                    1086
                    """;
-        assertEquals(answer,IntDivision.makeDivision(-145356,-3435));
-
+        assertEquals(answer,IntDivision.divide(-145356,-3435));
     }
 }
