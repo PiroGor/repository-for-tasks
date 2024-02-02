@@ -1,5 +1,8 @@
 package app.textRevers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author Anastasiia Nudha
  * @version 0.1.0
@@ -27,15 +30,23 @@ public class IntDivision {
      *                                  until we get one digit in memory that can`t
      *                                  be subtracted or we receive 0.
      */
-    public static String makeDivision(int dividend, int divisor) {
+    public static String divide(int dividend, int divisor) {
+
+        String[] digits;
+        StringBuilder lastReminder = new StringBuilder();
+        StringBuilder multiply = new StringBuilder();
+        Integer reminderNumber;
+        Integer multiplyResult;
+        Integer subtractionResult;
+        StringBuilder calculations = new StringBuilder();
+        StringBuilder answer = new StringBuilder();
+        StringBuilder reminder = new StringBuilder();
+        ComponentsForDividing components = new ComponentsForDividing(dividend,divisor);
 
         if (divisor == 0) {
             return "Divisor cannot be 0, division by zero";
         }
 
-        StringBuilder calculations = new StringBuilder();
-        StringBuilder answer = new StringBuilder();
-        StringBuilder reminder = new StringBuilder();
 
         if ((dividend < 0) ^ (divisor < 0)) {
             answer.append("-");
@@ -48,12 +59,7 @@ public class IntDivision {
             return "" + dividend + "/" + divisor + "=0";
         }
 
-        String[] digits = String.valueOf(dividend).split("");
-        StringBuilder lastReminder = new StringBuilder();
-        StringBuilder multiply = new StringBuilder();
-        Integer reminderNumber;
-        Integer multiplyResult;
-        Integer subtractionResult;
+        digits = String.valueOf(dividend).split("");
 
         for (int i = 0; i < digits.length; i++) {
             reminder.append(digits[i]);
@@ -87,7 +93,7 @@ public class IntDivision {
             }
         }
 
-        return viewCalculations(dividend, divisor, calculations, answer);
+        return viewCalculations(components, calculations, answer);
     }
 
     /**
@@ -105,8 +111,7 @@ public class IntDivision {
     /**
      * Method name: viewCalculations
      *
-     * @param dividend           The number to be divided.
-     * @param divisor            The number by which to divide.
+     * @param components         The numbers to be divided and by which to divide.
      * @param devideCalculations Step by step calculations that we did.
      * @param devideAnswer       Answer we receive after calculations.
      * @return (String) Whole column division.
@@ -115,7 +120,7 @@ public class IntDivision {
      *         have a new like making tabulation to create a ladder like view. 3.
      *         Insert all the numbers on their places. 3. Claim section borders. 4.
      */
-    private static String viewCalculations(Integer dividend, Integer divisor, StringBuilder devideCalculations,
+    private static String viewCalculations(ComponentsForDividing components, StringBuilder devideCalculations,
                                            StringBuilder devideAnswer) {
         int[] sectionBorders = new int[3];
         int massiveCell = 0;
@@ -131,14 +136,14 @@ public class IntDivision {
             }
         }
 
-        int numberOfSymbols = calculateDigit(dividend) + 1 - sectionBorders[0];
+        int numberOfSymbols = calculateDigit(components.getDividend()) + 1 - sectionBorders[0];
 
         devideCalculations.insert(sectionBorders[2],
                 assemblyString(numberOfSymbols, ' ') + "|" + devideAnswer.toString());
         devideCalculations.insert(sectionBorders[1],
                 assemblyString(numberOfSymbols, ' ') + "|" + assemblyString(devideAnswer.length(), '-'));
-        devideCalculations.insert(sectionBorders[0], "|" + divisor);
-        devideCalculations.replace(1, sectionBorders[0], dividend.toString());
+        devideCalculations.insert(sectionBorders[0], "|" + components.getDivisor());
+        devideCalculations.replace(1, sectionBorders[0], components.getDividend().toString());
 
         return devideCalculations.toString();
     }
@@ -170,5 +175,6 @@ public class IntDivision {
     private static int calculateDigit(int dividend) {
         return (int) Math.log10(dividend) + 1;
     }
+
 
 }
