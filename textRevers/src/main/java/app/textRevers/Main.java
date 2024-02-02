@@ -2,10 +2,14 @@ package app.textRevers;
 
 
 import java.util.Scanner;
+
 public class Main {
+
 	private static Scanner scanner = new Scanner(System.in);
+
 	public static void main(String[] args) {
-		choicerOfProgram();
+		selectToExecute();
+		scanner.close();
 	}
 
 	/**
@@ -15,7 +19,7 @@ public class Main {
 	 * Inside the function: Prints simple interface to choose program to execute.
 	 */
 
-	private static void choicerOfProgram() {
+	private static void selectToExecute() {
 			System.out.println();
 			System.out.print( """
         * * * * * * * * * * * * * * * * * *
@@ -32,13 +36,14 @@ public class Main {
 			String choice=scanner.nextLine();
 
 			if(choice.equals("1")){
-				reverser();
+				reverseSentenceExecutor();
 			}else if(choice.equals("2")){
-				division();
+				intDivisionExecutor();
 			}else{
 				System.out.println("Shutting down...");
-				scanner.close();
+
 			}
+
 
 	}
 
@@ -48,14 +53,15 @@ public class Main {
 	 * <p>
 	 * Inside the function: Prints simple interface to input sentence.
 	 */
-	private static void reverser(){
+	private static void reverseSentenceExecutor(){
 		System.out.println( "* * * * * * * * * * * * * * * * * *\n" +
 							"* Please, enter your sentence:     " );
 
 		System.out.println( "* Reversed sentence: \n"+
 							"* "+Reverser.reverseSentence(scanner.nextLine())+
 							"\n* * * * * * * * * * * * * * * * * *\n");
-		askToContinueProgram();
+
+		askToContinue();
 	}
 
 	/**
@@ -64,7 +70,7 @@ public class Main {
 	 * <p>
 	 * Inside the function: Prints simple interface to input dividend and divisor.
 	 */
-	private static void division(){
+	private static void intDivisionExecutor(){
 		System.out.println( "* * * * * * * * * * * * * * * * * *\n"+
 							"*Please, enter a dividend: ");
 		int dividend= scanner.nextInt();
@@ -73,7 +79,7 @@ public class Main {
 		System.out.println("* * * * * * * * * * * * * * * * * *");
 		System.out.println(IntDivision.makeDivision(dividend,divisor));
 
-		askToContinueProgram();
+		askToContinue();
 	}
 
 	/**
@@ -82,16 +88,15 @@ public class Main {
 	 * <p>
 	 * Inside the function: Prints question to continue program or quit.
 	 */
-	private static void askToContinueProgram(){
+	private static void askToContinue(){
 		System.out.println("Do you want to continue this session? y/n   ");
 		if(scanner.next().equals("y")){
-			choicerOfProgram();
+			selectToExecute();
 		}else if(scanner.next().equals("n")){
 			System.out.println("\nShutting down...\nBye bye!");
-			scanner.close();
 		}else{
 			System.out.println("Please, chose y or n");
-			askToContinueProgram();
+			askToContinue();
 		}
 	}
 
