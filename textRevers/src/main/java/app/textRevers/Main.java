@@ -26,6 +26,7 @@ public class Main {
 								*---------------------------------*
 								* 1 - Anagrams                    *
 								* 2 - IntegerDivision			  *
+								* 3 - CharsCounter                *
 								*								  *
 								* # - Any symbol to exit          *
 								* * * * * * * * * * * * * * * * * *
@@ -36,8 +37,10 @@ public class Main {
 
 		if(choice.equals("1")){
 			reverseSentenceExecutor();
-		}else if(choice.equals("2")){
+		}else if(choice.equals("2")) {
 			intDivisionExecutor();
+		}else if(choice.equals("3")){
+			charsCounterExecutor();
 		}else{
 			System.out.println("Shutting down...");
 			scanner.close();
@@ -86,7 +89,7 @@ public class Main {
 	 * Method name: askToContinueProgram
 	 * <p>
 	 * <p>
-	 * Inside the function: Prints question to continue program or quit.
+	 * Inside the function: Print the question to continue program or quit.
 	 */
 	private static void askToContinue(){
 		System.out.println("Do you want to continue this session? y/n   ");
@@ -99,6 +102,21 @@ public class Main {
 			System.out.println("Please, chose y or n");
 			askToContinue();
 		}
+	}
+
+	/**
+	 * Method name: charsCounterExecutor
+	 * <p>
+	 * <p>
+	 * Inside the function: Print simple interface to insert the world/sentence to count chars.
+	 */
+	private static void charsCounterExecutor(){
+		System.out.println( "* * * * * * * * * * * * * * * * * *\n"+
+							"*   Insert the word or sentence   * \n"+
+							"* * * * * * * * * * * * * * * * * *");
+		System.out.println(CharsCounter.countChars(scanner.nextLine()));
+		System.out.println("* * * * * * * * * * * * * * * * * *\n");
+		askToContinue();
 	}
 
 }
