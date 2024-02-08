@@ -29,9 +29,9 @@ class IntDivisionTest {
     @Test
     void dividendLessThanZero(){
         String answer="""
-                _145356|3435
-                 13740 |--
-                 ----- |42
+                _-145356|-3435
+                 13740|--
+                 -----|42
                   _7956
                    6870
                    ----

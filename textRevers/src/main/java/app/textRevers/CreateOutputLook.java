@@ -19,7 +19,7 @@ public abstract class CreateOutputLook {
         return cache.get(sentence);
     }
 
-    public static Map<String,String> getCache(){
+    protected static Map<String,String> getCache(){
         return cache;
     }
 }

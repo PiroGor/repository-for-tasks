@@ -10,7 +10,7 @@ import java.util.LinkedHashMap;
  * @since 0.0.1
  */
 
-public abstract class CharsCounter {
+public class CharsCounter extends CreateOutputLook{
 
     /**
      * Method name: countChars
