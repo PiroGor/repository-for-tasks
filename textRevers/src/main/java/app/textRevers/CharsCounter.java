@@ -25,7 +25,12 @@ public abstract class CharsCounter {
 
         Map<Character, Integer> map = new LinkedHashMap<>();
 
-        if(!CreateOutpuLook.getCache().containsKey(sentence)){
+
+        if(sentence==null){
+            throw new IllegalArgumentException("Text can't be null, please enter a text");
+        }
+
+        if(!CreateOutputLook.getCache().containsKey(sentence)){
 
             for(int i=0; i<sentence.length();i++){
 
