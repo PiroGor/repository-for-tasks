@@ -114,7 +114,7 @@ public class Main {
 		System.out.println( "* * * * * * * * * * * * * * * * * *\n"+
 							"*   Insert the word or sentence   * \n"+
 							"* * * * * * * * * * * * * * * * * *");
-		System.out.println(CreateOutpuLook.outputForCountedChars(scanner.nextLine()));
+		System.out.println(CreateOutputLook.outputForCountedChars(scanner.nextLine()));
 		System.out.println("* * * * * * * * * * * * * * * * * *\n");
 		askToContinue();
 	}
