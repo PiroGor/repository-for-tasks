@@ -1,6 +1,9 @@
 package app.textRevers;
 
-import java.util.*;
+
+import java.util.Map;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 /**
  * @author Anastasiia Nudha
@@ -26,11 +29,21 @@ public class CharsCounter {
     public static String countChars(String sentence){
 
     if(sentence==null){
-        throw new IllegalArgumentException("Text can't be null, please enter ");
+        throw new IllegalArgumentException("Text can't be null, please enter a text");
     }
 
     if(!cache.containsKey(sentence)){
-        cache.put(sentence, countValue(sentence));
+
+        Map<Character, Integer> map = new LinkedHashMap<>();
+
+        for(int i=0; i<sentence.length();i++){
+            if (map.containsKey(sentence.charAt(i))){
+                map.replace(sentence.charAt(i), map.get(sentence.charAt(i)), map.get(sentence.charAt(i))+1);
+            } else {
+                map.put(sentence.charAt(i), 1);
+            }
+        }
+        cache.put(sentence, sentence + "\n" + createOutputLook(map));
     }
 
     return cache.get(sentence);
@@ -39,37 +52,13 @@ public class CharsCounter {
     /**
      * Method name: countValue
      *
-     * @param sentence The sentence in which be counted chars.
-     * @return (String) String sentence and display result.
-     * 											Inside the function: 1. Add chars to a map and count them, if
-     * 											chars already exist add +1 value;
-     * 											2. Call the print method; 3. Return the data for display;
-     *
-     */
-
-    private static String countValue(String sentence){
-        Map<Character, Integer> map = new LinkedHashMap<>();
-
-        for(int i=0; i<sentence.length();i++){
-            if(map.containsKey(sentence.charAt(i))){
-                map.replace(sentence.charAt(i), map.get(sentence.charAt(i)),map.get(sentence.charAt(i))+1);
-            }else{
-                map.put(sentence.charAt(i),1);
-            }
-        }
-        return sentence + "\n" + print(map);
-    }
-
-    /**
-     * Method name: countValue
-     *
      * @param map The Map of counted chars.
      * @return (String) String display sentence.
-     * 											Inside the function: 1. Add to stringBuilder how it's must display;
+     * 											Inside the function: 1. Add to stringBuilder how display must look like;
      * 											2. Return string display version;
      */
 
-    private static String print(Map<Character,Integer> map){
+    private static String createOutputLook(Map<Character,Integer> map){
         StringBuilder stringBuilder = new StringBuilder();
         for (Map.Entry<Character, Integer> item : map.entrySet()){
             stringBuilder.append("'"+item.getKey()+"'"+"-"+ item.getValue()+"\n");
