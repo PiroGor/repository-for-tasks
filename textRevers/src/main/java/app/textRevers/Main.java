@@ -4,6 +4,7 @@ package app.textRevers;
 import java.util.Scanner;
 
 public class Main {
+	private static String startEndLine = "* * * * * * * * * * * * * * * * * *\n";
 
 	private static Scanner scanner = new Scanner(System.in);
 
@@ -57,12 +58,12 @@ public class Main {
 	 * Inside the function: Prints simple interface to input sentence.
 	 */
 	private static void reverseSentenceExecutor(){
-		System.out.println( "* * * * * * * * * * * * * * * * * *\n" +
+		System.out.println( startEndLine +
 							"* Please, enter your sentence:     " );
 
-		System.out.println( "* Reversed sentence: \n"+
-							"* "+Reverser.reverseSentence(scanner.nextLine())+
-							"\n* * * * * * * * * * * * * * * * * *\n");
+		System.out.println( "* Reversed sentence: \n" +
+							"* " + Reverser.reverseSentence(scanner.nextLine()) +
+							"\n" + startEndLine);
 
 		askToContinue();
 	}
@@ -74,12 +75,12 @@ public class Main {
 	 * Inside the function: Prints simple interface to input dividend and divisor.
 	 */
 	private static void intDivisionExecutor(){
-		System.out.println( "* * * * * * * * * * * * * * * * * *\n"+
+		System.out.println( startEndLine +
 							"*Please, enter a dividend: ");
 		int dividend= scanner.nextInt();
 		System.out.println("* Enter a divisor: ");
 		int divisor= scanner.nextInt();
-		System.out.println("* * * * * * * * * * * * * * * * * *");
+		System.out.println(startEndLine);
 		System.out.println(IntDivision.divide(dividend,divisor));
 
 		askToContinue();
@@ -111,11 +112,11 @@ public class Main {
 	 * Inside the function: Print simple interface to insert the world/sentence to count chars.
 	 */
 	private static void charsCounterExecutor(){
-		System.out.println( "* * * * * * * * * * * * * * * * * *\n"+
-							"*   Insert the word or sentence   * \n"+
-							"* * * * * * * * * * * * * * * * * *");
+		System.out.println( startEndLine +
+							"*   Insert the word or sentence   * \n" +
+							startEndLine);
 		System.out.println(CharsCounter.outputForCountedChars(scanner.nextLine()));
-		System.out.println("* * * * * * * * * * * * * * * * * *\n");
+		System.out.println(startEndLine);
 		askToContinue();
 	}
 

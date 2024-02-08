@@ -1,6 +1,7 @@
 package app.textRevers;
 
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.LinkedHashMap;
 
@@ -10,7 +11,12 @@ import java.util.LinkedHashMap;
  * @since 0.0.1
  */
 
-public class CharsCounter extends CreateOutputLook{
+public class CharsCounter{
+    private static Map<String, String> cache = new HashMap<>();
+
+    private CharsCounter(){
+
+    }
 
     /**
      * Method name: countChars
@@ -22,31 +28,34 @@ public class CharsCounter extends CreateOutputLook{
      */
 
     public static Map<Character,Integer> countChars(String sentence){
-
         Map<Character, Integer> map = new LinkedHashMap<>();
 
-
-        if(sentence==null){
+        if (sentence == null) {
             throw new IllegalArgumentException("Text can't be null, please enter a text");
         }
 
-        if(!CreateOutputLook.getCache().containsKey(sentence)){
+        if (!cache.containsKey(sentence)) {
+            for (int i = 0; i < sentence.length(); i++) {
+                char letter = sentence.charAt(i);
 
-            for(int i=0; i<sentence.length();i++){
-
-             if (map.containsKey(sentence.charAt(i))){
-
-                map.replace(sentence.charAt(i), map.get(sentence.charAt(i)), map.get(sentence.charAt(i))+1);
-
+                if (map.containsKey(letter)) {
+                     map.put(letter, map.get(letter) + 1 );
                 } else {
-
-                map.put(sentence.charAt(i), 1);
-
+                     map.put(letter, 1);
                 }
              }
         }
-
-         return map;
+        return map;
     }
 
+    public static String outputForCountedChars(String sentence){
+        Map<Character, Integer> map =countChars(sentence);
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (Map.Entry<Character, Integer> item : map.entrySet()){
+            stringBuilder.append("'" + item.getKey() + "'" + "-" + item.getValue() + "\n");
+        }
+        cache.put(sentence, sentence + "\n" + stringBuilder);
+        return cache.get(sentence);
+    }
 }
